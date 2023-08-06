@@ -1,0 +1,69 @@
+format = '''
+[┌](fg:red)$status$hostname$cmd_duration$directory$git_branch$git_status$nodejs$rust$golang$php$java$python$docker_context
+[└──╼](fg:red)$username$character
+'''
+
+[status]
+style='fg:white'
+symbol='✗'
+format = '[\[](fg:red)[$symbol]($style)[\]](fg:red)'
+disabled = false
+
+[character]
+success_symbol = '[\$](fg:yellow)'
+error_symbol = '[\$](fg:yellow)'
+vimcmd_symbol = '[\$](fg:yellow)'
+vimcmd_replace_one_symbol = '[\$](fg:yellow)'
+vimcmd_replace_symbol = '[\$](fg:yellow)'
+vimcmd_visual_symbol = '[\$](fg:yellow)'
+
+[username]
+style_user = 'green'
+show_always = true
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+style = "fg:cyan"
+format = '[\[](fg:red)[$ssh_symbol$hostname]($style)[\]](fg:red)'
+
+[directory]
+style = "fg:purple"
+format = '[─\[](fg:red)[$path]($style)[\]](fg:red)'
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "fg:bright-black"
+format = '[─\[](fg:red)[$branch]($style)[\]](fg:red)'
+
+[git_status]
+style = "fg:bright-black"
+format = '[\[](fg:red)[$all_status$ahead_behind]($style)[\]](fg:red)'
+
+[java]
+style = "fg:bright-black"
+format = '[  ](fg:black)[$symbol${version}]($style)'
+symbol = "[ ](fg:#d65d0e)"
+
+[nodejs]
+style = "fg:bright-black"
+format = '[  ](fg:black)[${version}]($style) '
+symbol = "[ ](fg:green)"
+
+[python]
+style = "fg:bright-black"
+format = '[  ](fg:black)[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style) '
+version_format = 'v${major}.${minor}'
+symbol = "[ ](fg:cyan)"
+
+[rust]
+style = "fg:bright-black"
+format = '[  ](fg:black)[${symbol}${version}]($style) '
+symbol = "[ ](fg:yellow)"
+
+[cmd_duration]
+style = "fg:yellow"
+min_time = 1
+show_milliseconds = true
+format = '[\[](fg:red)[⏱ $duration]($style)[\]](fg:red)'
